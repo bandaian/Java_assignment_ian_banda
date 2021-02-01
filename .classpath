@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="CSV/src"/>
+	<classpathentry kind="src" path="Fan-application/src"/>
+	<classpathentry kind="lib" path="Fan-application/build/jar/Fan-application.jar"/>
+	<classpathentry kind="output" path="CSV/bin"/>
+</classpath>
