@@ -23,9 +23,9 @@ import java.util.Date;
  */
 public class SampleServer 
 {   
-	int 					portnumber;
+	int 	portnumber;
 	
-	ServerSocket 			server_socket;
+	ServerSocket 	server_socket;
 	
 	// reference variable to store object IO streams, should be used when working with serialized objects.
 	// Students to use and replace datainput streams..
@@ -115,7 +115,7 @@ public class SampleServer
 		// server is listening on port 5056 as previous example port changed from 3142
 		
 		//int port = Integer.parseInt(args[0]);	
-		int port = 1234;
+		int port = 0101;
 		SampleServer server = new SampleServer(port);		
 		
 	} // End Main
@@ -136,6 +136,13 @@ class SampleClientHandler extends Thread
 	final DataOutputStream 			dos; //Declare dos as DataOutputStream
 	
 	final Socket 					s; //Declare s as a Socket
+	
+	// initilise csv reaser object
+	CSVReader csvtest = new CSVReader();
+	
+	// taking value from csv reader
+	
+   ArrayList<SensorData> sensorDataValues = csvtest.getSensorDataValues() ;
 
 	/**
 	 * Constructor.
@@ -173,6 +180,8 @@ class SampleClientHandler extends Thread
 				// receive the answer from client 
 				received = dis.readUTF(); 
 				
+				System.out.println(received);
+				
 				if(received.equals("Exit")) 
 				{ 
 					System.out.println("Client " + this.s + " sends exit..."); 
@@ -182,8 +191,19 @@ class SampleClientHandler extends Thread
 					break; 
 				} 
 				
+				//for (int i; i <  sensorDataValues.lenght();) {};
+				
+				for (int i = 0; i< sensorDataValues.size(); i++ ) {
+					// the numbers are the numbers of columns within the excel sheet
+					
+					dos.writeUTF("Server response: " + sensorDataValues.get(i) );
+					
+					
+					}
+				
 				// server response is simply the upper case of client request.
-				dos.writeUTF("Server response: " + received.toUpperCase()); 				
+				//dos.writeUTF("Server response: " + received.toUpperCase()); 		
+		
 				
 			} catch (IOException e) { 
 				e.printStackTrace(); 
@@ -199,5 +219,10 @@ class SampleClientHandler extends Thread
 		}catch(IOException e){ 
 			e.printStackTrace(); 
 		} 
+	}
+
+	private String getSensorDataValues() {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 } 
