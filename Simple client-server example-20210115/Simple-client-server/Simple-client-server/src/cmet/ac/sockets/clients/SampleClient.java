@@ -92,7 +92,7 @@ public class SampleClient
 		
 		//String ip = args[0];
 		//int port = Integer.parseInt(args[1]);
-		int port = 0101;
+		int port = 0102;
 		String ip = "127.00.1";
 		
 		SampleClient client = new SampleClient(ip, port);

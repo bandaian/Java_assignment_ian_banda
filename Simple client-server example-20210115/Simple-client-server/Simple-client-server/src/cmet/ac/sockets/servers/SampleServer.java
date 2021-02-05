@@ -1,5 +1,6 @@
 package cmet.ac.sockets.servers;
 
+
 import java.io.BufferedInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -115,7 +116,7 @@ public class SampleServer
 		// server is listening on port 5056 as previous example port changed from 3142
 		
 		//int port = Integer.parseInt(args[0]);	
-		int port = 0101;
+		int port = 0102;
 		SampleServer server = new SampleServer(port);		
 		
 	} // End Main
